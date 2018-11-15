@@ -1,4 +1,4 @@
-package core_java_test.design_patterns_test.designPatternTest;
+package core_java.designPatternTest;
 
 import core_java.design_patterns.decorator.BasicCar;
 import core_java.design_patterns.decorator.Car;

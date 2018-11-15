@@ -1,4 +1,4 @@
-package core_java_test.design_patterns_test.serializationTest;
+package core_java.serializationTest;
 
 import core_java.serialization.Employee;
 import core_java.serialization.SerializationUtil;
