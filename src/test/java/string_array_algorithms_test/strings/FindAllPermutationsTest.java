@@ -1,7 +1,7 @@
 package string_array_algorithms_test.strings;
 
 import org.junit.Test;
-import string_arrays_algorithms.strings.FindAllPremutations;
+import string_arrays.strings.FindAllPremutations;
 
 public class FindAllPermutationsTest {
 

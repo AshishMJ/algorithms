@@ -3,7 +3,7 @@ package string_array_algorithms_test.strings;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import string_arrays_algorithms.strings.LengthOfLongestSubstringWithoutRepeatingChars;
+import string_arrays.strings.LengthOfLongestSubstringWithoutRepeatingChars;
 import java.util.HashMap;
 import java.util.Map;
 

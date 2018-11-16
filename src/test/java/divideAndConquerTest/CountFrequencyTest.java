@@ -1,6 +1,6 @@
 package divideAndConquerTest;
 
-import divideAndConquer.sorting.recursive.CountFrequency;
+import divideAndConquer.CountFrequency;
 import org.junit.Test;
 
 /**

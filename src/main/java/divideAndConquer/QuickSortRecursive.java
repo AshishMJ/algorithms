@@ -1,4 +1,4 @@
-package divideAndConquer.sorting.recursive;
+package divideAndConquer;
 
 /**
  * Created by ashishm on 19/3/18.

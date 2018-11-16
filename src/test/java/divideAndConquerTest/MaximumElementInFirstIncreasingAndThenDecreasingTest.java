@@ -1,6 +1,6 @@
 package divideAndConquerTest;
 
-import divideAndConquer.sorting.recursive.MaximumElementInFirstIncreasingAndThenDecreasing;
+import divideAndConquer.MaximumElementInFirstIncreasingAndThenDecreasing;
 import org.junit.Test;
 
 /**

@@ -2,7 +2,7 @@ package string_array_algorithms_test.arrays;
 
 import org.junit.Assert;
 import org.junit.Test;
-import string_arrays_algorithms.arrays.LocalMinima;
+import string_arrays.arrays.LocalMinima;
 
 public class LocalMinimaTest {
 

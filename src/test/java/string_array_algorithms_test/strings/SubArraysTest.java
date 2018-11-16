@@ -1,7 +1,7 @@
 package string_array_algorithms_test.strings;
 
 import org.junit.Test;
-import string_arrays_algorithms.strings.SubArrays;
+import string_arrays.strings.SubArrays;
 
 /**
  * Created by ashishm on 14/5/18.

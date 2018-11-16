@@ -1,4 +1,4 @@
-package string_arrays_algorithms.strings;
+package string_arrays.strings;
 
 import java.util.HashSet;
 import java.util.Set;

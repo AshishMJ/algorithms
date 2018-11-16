@@ -1,4 +1,4 @@
-package string_arrays_algorithms.arrays;
+package string_arrays.arrays;
 
 public class LocalMinima {
 

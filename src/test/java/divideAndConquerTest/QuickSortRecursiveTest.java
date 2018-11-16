@@ -1,6 +1,6 @@
 package divideAndConquerTest;
 
-import divideAndConquer.sorting.recursive.QuickSortRecursive;
+import divideAndConquer.QuickSortRecursive;
 import org.junit.Test;
 
 /**
