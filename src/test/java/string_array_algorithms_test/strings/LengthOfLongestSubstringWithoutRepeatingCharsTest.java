@@ -13,7 +13,7 @@ public class LengthOfLongestSubstringWithoutRepeatingCharsTest {
 
     @Before
     public void initTestCases() {
-        testCases = new HashMap<>() {{
+        testCases = new HashMap<String, Integer>() {{
             put(null, 0);
             put("abcabcbb", 3);
             put("bbbbb", 1);
