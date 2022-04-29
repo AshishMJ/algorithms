@@ -275,4 +275,41 @@ public class SingleLinkedListTest {
 
         L.printList();
     }
+
+    @Test
+    public void mergeTwoListsAtAlternatePosition() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        SingleListNode list1 = singleLinkedList.insertAtLast(3);
+        singleLinkedList.insertAtLast(6);
+        singleLinkedList.insertAtLast(9);
+
+        SingleLinkedList singleLinkedList2 = new SingleLinkedList();
+        SingleListNode list2 = singleLinkedList2.insertAtLast(4);
+        singleLinkedList2.insertAtLast(7);
+        singleLinkedList2.insertAtLast(8);
+
+        final SingleListNode node = singleLinkedList.mergeTwoListsAtAlternatePosition(list1, list2);
+        SingleListNode temp = node;
+        while (temp != null) {
+            System.out.println(temp.getData());
+            temp = temp.getNext();
+        }
+    }
+
+    @Test
+    public void reOrderList() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        SingleListNode list = singleLinkedList.insertAtLast(1);
+        singleLinkedList.insertAtLast(2);
+        singleLinkedList.insertAtLast(3);
+        singleLinkedList.insertAtLast(4);
+        singleLinkedList.insertAtLast(5);
+
+        final SingleListNode node = singleLinkedList.reOrderList(list);
+        SingleListNode temp = node;
+        while (temp != null) {
+            System.out.println(temp.getData());
+            temp = temp.getNext();
+        }
+    }
 }

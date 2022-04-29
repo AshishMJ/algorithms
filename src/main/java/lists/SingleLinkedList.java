@@ -2,6 +2,8 @@ package lists;
 
 import lists.common.SingleListNode;
 
+import java.util.Objects;
+
 /**
  * Created by ashishm on 25/3/18.
  */
@@ -422,6 +424,47 @@ public class SingleLinkedList {
 
             return node;
         }
+    }
+
+    public SingleListNode mergeTwoListsAtAlternatePosition(SingleListNode node1,
+                                                           SingleListNode node2) {
+        SingleListNode head = node1;
+        while (Objects.nonNull(node1) && Objects.nonNull(node2)) {
+            SingleListNode node1Next = node1.getNext();
+            SingleListNode node2Next = node2.getNext();
+
+            node1.setNext(node2);
+            if (Objects.nonNull(node1Next)) {
+                node2.setNext(node1Next);
+            }
+
+            node1 = node1Next;
+            node2 = node2Next;
+        }
+
+        return head;
+    }
+
+    public SingleListNode reOrderList(SingleListNode head) {
+        //Get middle.
+        SingleListNode middle = getMiddle(head);
+        //Second part of the list.
+        SingleListNode node2 = middle.getNext();
+        //Reverse second part of list.
+        SingleListNode prev = null;
+        SingleListNode curr = node2;
+        while (curr != null) {
+            SingleListNode temp = curr.getNext();
+            curr.setNext(prev);
+            prev = curr;
+            curr = temp;
+        }
+        //Split the list.
+        node2 = prev;
+        middle.setNext(null);
+        //Merge list at alterate pos.
+        mergeTwoListsAtAlternatePosition(head, node2);
+        return head;
     }
 
     @Override
