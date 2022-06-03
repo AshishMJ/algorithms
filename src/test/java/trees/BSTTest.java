@@ -109,5 +109,15 @@ public class BSTTest {
         bst.preOrderTraverseIterative();
     }
 
+    @Test
+    public void testPreOrderIterativeNew(){
+        bst.preOrderTraverseIterativeNew();
+    }
+
+    @Test
+    public void convertToMirrorTree(){
+        bst.convertToMirrorTree();
+        bst.levelOrderTraverseIterative();
+    }
 
 }

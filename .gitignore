@@ -1,0 +1,48 @@
+#Eclips Paths
+.classpath
+.project
+.settings/
+bin/
+
+#IntelliJ Idea Paths
+.idea/
+*.iml
+*.uml
+*.iws
+*.xml
+atlassia*
+
+#Netbeans output
+nbproject
+dist/
+build/
+dbdist/
+nbactions.xml
+nb-configuration.xml
+
+#Apple Paths
+.DS_Store
+
+#Maven Paths
+log/
+target/
+
+#Maven Plugins
+test-output/
+
+#Misc Editor
+*.bak
+*.tmp
+
+#Java File Extensions
+*.class
+*.jar
+*.war
+*.ear
+
+rebel.xml
+dependency-reduced-pom.xml
+MessageDictionary.adoc
+
+#Strati unit test case logs
+*.log

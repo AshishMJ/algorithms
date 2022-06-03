@@ -3,6 +3,7 @@ package trees;
 import trees.common.Node;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -118,6 +119,27 @@ public class BST {
 
             final Node tos = stack.pop();
             curr = tos.getRight();
+        }
+    }
+
+    public void preOrderTraverseIterativeNew() {
+        if (isEmpty()) {
+            System.out.println("Tree is Empty");
+            return;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.empty()) {
+            Node node = stack.pop();
+            System.out.println(node);
+            if (Objects.nonNull(node.getRight())) {
+                stack.push(node.getRight());
+            }
+            if (Objects.nonNull(node.getLeft())) {
+                stack.push(node.getLeft());
+            }
         }
     }
 
@@ -264,6 +286,28 @@ public class BST {
             }
         }
         return null;
+    }
+
+    public void convertToMirrorTree() {
+        if (isNotEmpty()) {
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                Node node = queue.poll();
+                Node left = node.getLeft();
+                Node right = node.getRight();
+                if (Objects.nonNull(left)) {
+                    node.setRight(left);
+                    queue.add(left);
+                }
+                if (Objects.nonNull(right)) {
+                    node.setLeft(right);
+                    queue.add(right);
+                }
+            }
+        } else {
+            System.out.println("Empty tree");
+        }
     }
 
 }
