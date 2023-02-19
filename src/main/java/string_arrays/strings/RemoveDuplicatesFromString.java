@@ -1,35 +1,26 @@
 package string_arrays.strings;
 
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RemoveDuplicatesFromString {
 
-    public static String remove(String input) {
-        if(input == null || input.trim().length() == 0){
-            throw new IllegalArgumentException("Invalid String");
-        }
+    public static String removeDuplicatesFromString(String s) {
+        char[] c = s.toCharArray();
+        int index = 0;
+        Set<Character> LOOKUP = new HashSet<>();
 
-        int size = input.length();
-        HashMap<Character, Integer> LOOKUP = new HashMap<>();
-
-        StringBuffer buffer = new StringBuffer();
-
-        for (int i = 0; i < size; i++) {
-            char c = input.charAt(i);
-            boolean isCharExists = LOOKUP.containsKey(c);
-
-            if (isCharExists) {
-                LOOKUP.put(c, LOOKUP.get(c) + 1);
-            } else {
-                buffer.append(c);
-                LOOKUP.put(c, 1);
+        for (int i = 0; i < c.length; i++) {
+            if (LOOKUP.add(c[i])) {
+                c[index++] = c[i];
             }
         }
 
-        return buffer.toString();
+        return String.valueOf(Arrays.copyOf(c, index));
     }
 
     public static void main(String[] args) {
-        System.out.println(remove("tutorialhorizon"));
+        System.out.println(removeDuplicatesFromString("Ashish M Jain"));
     }
 }

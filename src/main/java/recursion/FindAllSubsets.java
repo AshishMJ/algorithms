@@ -63,6 +63,20 @@ public class FindAllSubsets {
         findSol2(currIndex + 1);
     }
 
+    public void printSubsetsWithSum0(int currIndex, int sum) {
+        if (sum == 0 && combinationList.size() > 0) {
+            System.out.println(combinationList);
+        }
+
+        if (currIndex == N) {
+            return;
+        }
+        combinationList.add(arr[currIndex]);
+        printSubsetsWithSum0(currIndex + 1, sum + arr[currIndex]);
+        combinationList.remove(combinationList.size() - 1);
+        printSubsetsWithSum0(currIndex + 1, sum);
+    }
+
     public void print() {
         Collections.reverse(result);
         for (List<Integer> list : result) {
@@ -71,13 +85,18 @@ public class FindAllSubsets {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4};
-        FindAllSubsets findAllSubsets = new FindAllSubsets(arr, arr.length);
-        findAllSubsets.findSol1(0);
-        findAllSubsets.print();
+//        int[] arr = {1, 2, 3, 4};
+//        FindAllSubsets findAllSubsets = new FindAllSubsets(arr, arr.length);
+//        findAllSubsets.findSol1(0);
+//        findAllSubsets.print();
+//
+//        int[] arr1 = {1, 2, 3};
+//        FindAllSubsets findAllSubsets1 = new FindAllSubsets(arr1, arr1.length);
+//        findAllSubsets1.findSol2(0);
 
-        int[] arr1 = {1, 2, 3};
-        FindAllSubsets findAllSubsets1 = new FindAllSubsets(arr1, arr1.length);
-        findAllSubsets1.findSol2(0);
+
+        int[] arr2 = {3, 1, -4, 2, 0};
+        FindAllSubsets findAllSubsets2 = new FindAllSubsets(arr2, arr2.length);
+        findAllSubsets2.printSubsetsWithSum0(0, 0);
     }
 }

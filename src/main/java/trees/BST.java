@@ -2,6 +2,7 @@ package trees;
 
 import trees.common.Node;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
@@ -278,9 +279,9 @@ public class BST {
 
                 if (node1 != null) {
                     return node1;
-                }else if(node2 != null){
+                } else if (node2 != null) {
                     return node2;
-                }else{
+                } else {
                     return null;
                 }
             }
@@ -310,4 +311,119 @@ public class BST {
         }
     }
 
+    public void levelOrderSpiralForm() {
+        if (isNotEmpty()) {
+
+            int levels = getTreeLevel(root);
+            Queue<Node> queue = new LinkedList<>();
+            Stack<Node> stack = new Stack<>();
+            queue.add(root);
+
+            for (int level = 0; level <= levels; level++) {
+                while (!queue.isEmpty()) {
+                    Node node = queue.remove();
+                    System.out.println(node);
+                    if (level % 2 == 0) {
+                        if (Objects.nonNull(node.getRight())) {
+                            stack.push(node.getRight());
+                        }
+                        if (Objects.nonNull(node.getLeft())) {
+                            stack.push(node.getLeft());
+                        }
+                    } else {
+                        if (Objects.nonNull(node.getLeft())) {
+                            stack.push(node.getLeft());
+                        }
+                        if (Objects.nonNull(node.getRight())) {
+                            stack.push(node.getRight());
+                        }
+                    }
+                }
+                while (!stack.isEmpty()) {
+                    queue.add(stack.pop());
+                }
+            }
+        }
+    }
+
+    public int getTreeLevel(Node node) {
+        if (node != null) {
+            return 1 + Math.max(getTreeLevel(node.getLeft()), getTreeLevel(node.getRight()));
+        }
+        return 0;
+    }
+
+    public void printRootToLeafPaths(Node node, int[] paths, int pathLen) {
+        if (node != null) {
+            paths[pathLen++] = node.getData();
+            if (Objects.isNull(node.getLeft()) && Objects.isNull(node.getRight())) {
+                for (int i = 0; i < pathLen; i++) {
+                    System.out.print(paths[i] + " ");
+                }
+                System.out.println();
+            } else {
+                printRootToLeafPaths(node.getLeft(), paths, pathLen);
+                printRootToLeafPaths(node.getRight(), paths, pathLen);
+            }
+        }
+    }
+
+    public void printNodesAtKDistance(Node node, int k) {
+        if (node != null) {
+            if (k == 0) {
+                System.out.println(node.getData());
+            }
+            printNodesAtKDistance(node.getLeft(), k - 1);
+            printNodesAtKDistance(node.getRight(), k - 1);
+        }
+    }
+
+    public boolean areTreesIdentical(Node t1, Node t2) {
+        if (Objects.nonNull(t1) && Objects.nonNull(t2)) {
+            return t1.getData() == t2.getData() &&
+                    areTreesIdentical(t1.getLeft(), t2.getLeft()) &&
+                    areTreesIdentical(t1.getRight(), t2.getRight());
+        } else {
+            return Objects.isNull(t1) && Objects.isNull(t2);
+        }
+    }
+
+    public boolean isSubTree(Node n1, Node n2) {
+        if (n2 == null) {
+            return true;
+        }
+
+        if (n1 == null) {
+            return false;
+        }
+
+        boolean isSubTree = false;
+        if (n1.getData() == n2.getData()) {
+            isSubTree = areTreesIdentical(n1, n2);
+        }
+        return isSubTree || isSubTree(n1.getLeft(), n2) || isSubTree(n1.getRight(), n2);
+    }
+
+    public void reverseLevelOrder(){
+        if(isNotEmpty()){
+            Stack<Node> stack = new Stack<>();
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+
+            while (!queue.isEmpty()){
+                Node node = queue.remove();
+                stack.push(node);
+                if (node.getRight() != null) {
+                    queue.add(node.getRight());
+                }
+                if (node.getLeft() != null) {
+                    queue.add(node.getLeft());
+                }
+            }
+
+            while (!stack.isEmpty()) {
+                System.out.println(stack.pop());
+            }
+        }
+    }
 }

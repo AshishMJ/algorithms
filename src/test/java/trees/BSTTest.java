@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import trees.common.Node;
 
+import java.util.ArrayList;
+
 /**
  * Created by ashishm on 15/4/18.
  */
@@ -120,4 +122,23 @@ public class BSTTest {
         bst.levelOrderTraverseIterative();
     }
 
+    @Test
+    public void levelOrderSpiral(){
+        bst.levelOrderSpiralForm();
+    }
+
+    @Test
+    public void printRootToLeafPaths(){
+        bst.printRootToLeafPaths(bst.getRoot(), new int[100], 0);
+    }
+
+    @Test
+    public void printNodesAtKDistance(){
+        bst.printNodesAtKDistance(bst.getRoot(), 2);
+    }
+
+    @Test
+    public void reverseLevelOrder(){
+        bst.reverseLevelOrder();
+    }
 }
